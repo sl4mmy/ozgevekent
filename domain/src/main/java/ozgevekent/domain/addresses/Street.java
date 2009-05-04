@@ -53,7 +53,7 @@ public class Street {
 
         @Override
         public int hashCode() {
-                if (components == null || components.length == 0) {
+                if (isNullOrEmpty(components)) {
                         return 42;
                 }
 
@@ -61,28 +61,11 @@ public class Street {
         }
 
         public String toString() {
-                if (components == null || components.length == 0) {
+                if (isNullOrEmpty(components)) {
                         return "";
                 }
 
-                final int length = components.length;
-
-                final StringBuilder temp = new StringBuilder();
-                for (int i = 0; i < length; i++) {
-                        final String component = components[i];
-
-                        if (component == null) {
-                                temp.append("");
-                        } else {
-                                temp.append(component);
-                        }
-
-                        if (i < length - 1) {
-                                temp.append('\n');
-                        }
-                }
-
-                return temp.toString();
+                return join(components, "\n");
         }
 
         private boolean areComponentsEqual(final String[] left, final String[] right) {
@@ -104,6 +87,39 @@ public class Street {
                 }
 
                 return true;
+        }
+
+        private String emptyStringIfNull(final String value) {
+                if (value == null) {
+                        return "";
+                }
+
+                return value;
+        }
+
+        private boolean isLast(final int current, final int total) {
+                return current == total - 1;
+        }
+
+        private boolean isNullOrEmpty(final String[] values) {
+                return values == null || values.length == 0;
+        }
+
+        private String join(final String[] values, final String separator) {
+                final int length = values.length;
+
+                final StringBuilder temp = new StringBuilder();
+                for (int index = 0; index < length; index++) {
+                        final String component = components[index];
+
+                        temp.append(emptyStringIfNull(component));
+
+                        if (not(isLast(index, length))) {
+                                temp.append(separator);
+                        }
+                }
+
+                return temp.toString();
         }
 
         private boolean not(final boolean expression) {
