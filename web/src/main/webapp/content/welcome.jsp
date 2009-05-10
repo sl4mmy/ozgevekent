@@ -3,6 +3,10 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <html>
-<head><title>Hello, world!</title></head>
-<body><h1><s:property value="message"/></h1></body>
+<head>
+        <title>Merhaba!</title>
+</head>
+<body>
+<p>We're getting married!</p>
+</body>
 </html>

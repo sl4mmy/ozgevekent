@@ -4,8 +4,5 @@
 
 <struts>
         <package name="default" extends="struts-default">
-                <action name="HelloWorld" class="ozgevekent.HelloWorld">
-                        <result>/WEB-INF/pages/hello_world.jsp</result>
-                </action>
         </package>
 </struts>
