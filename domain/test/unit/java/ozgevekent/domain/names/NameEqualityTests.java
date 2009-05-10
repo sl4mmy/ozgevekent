@@ -75,6 +75,33 @@ public class NameEqualityTests {
         }
 
         @Test
+        public void shouldBeEqualToDifferentInstanceWhenBothNameValuesAreEmpty() throws Exception {
+                final Name left = new Name("");
+                final Name right = new Name("");
+
+                assertNotSame(left, right);
+                assertEquals(true, left.equals(right));
+        }
+
+        @Test
+        public void shouldEqualDifferentInstanceWhenNameValueIsNullAndOtherNameValueIsEmpty() throws Exception {
+                final Name left = new Name(null);
+                final Name right = new Name("");
+
+                assertNotSame(left, right);
+                assertEquals(true, left.equals(right));
+        }
+
+        @Test
+        public void shouldEqualDifferentInstanceWhenNameValueIsEmptyAndOtherNameValueIsNull() throws Exception {
+                final Name left = new Name("");
+                final Name right = new Name(null);
+
+                assertNotSame(left, right);
+                assertEquals(true, left.equals(right));
+        }
+
+        @Test
         public void shouldNotEqualDifferentInstanceWhenNameValuesAreNotEqual() throws Exception {
                 final Name left = new Name("LEFT");
                 final Name right = new Name("RIGHT");
@@ -83,7 +110,8 @@ public class NameEqualityTests {
         }
 
         @Test
-        public void shouldNotEqualDifferentInstanceWhenNameValueIsNullAndOtherNameValueIsNotNull() throws Exception {
+        public void shouldNotEqualDifferentInstanceWhenNameValueIsNullAndOtherNameValueIsNotNullOrEmpty()
+            throws Exception {
                 final Name left = new Name(null);
                 final Name right = new Name("DOES NOT MATTER");
 
@@ -91,9 +119,28 @@ public class NameEqualityTests {
         }
 
         @Test
-        public void shouldNotEqualDifferentInstanceWhenNameValueIsNotNullAndOtherNameValueIsNull() throws Exception {
+        public void shouldNotEqualDifferentInstanceWhenNameValueIsEmptyAndOtherNameValueIsNotNullOrEmpty()
+            throws Exception {
+                final Name left = new Name("");
+                final Name right = new Name("DOES NOT MATTER");
+
+                assertEquals(false, left.equals(right));
+        }
+
+        @Test
+        public void shouldNotEqualDifferentInstanceWhenNameValueIsNotNullOrEmptyAndOtherNameValueIsNull()
+            throws Exception {
                 final Name left = new Name("DOES NOT MATTER");
                 final Name right = new Name(null);
+
+                assertEquals(false, left.equals(right));
+        }
+
+        @Test
+        public void shouldNotEqualDifferentInstanceWhenNameValueIsNotNullOrEmptyAndOtherNameValueIsEmpty()
+            throws Exception {
+                final Name left = new Name("DOES NOT MATTER");
+                final Name right = new Name("");
 
                 assertEquals(false, left.equals(right));
         }

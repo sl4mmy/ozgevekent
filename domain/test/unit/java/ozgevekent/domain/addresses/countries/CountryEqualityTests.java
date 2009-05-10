@@ -25,28 +25,28 @@ import ozgevekent.domain.addresses.Country;
 public class CountryEqualityTests {
 
         @Test
-        public void shouldEqualSelf() throws Exception {
+        public void shouldBeEqualToSelf() throws Exception {
                 final Country country = new Country("DOES NOT MATTER");
 
                 assertEquals(true, country.equals(country));
         }
 
         @Test
-        public void shouldNotEqualNull() throws Exception {
+        public void shouldNotBeEqualToNull() throws Exception {
                 final Country country = new Country("DOES NOT MATTER");
 
                 assertEquals(false, country.equals(null));
         }
 
         @Test
-        public void shouldNotEqualAnyInstanceThatIsNotACountry() throws Exception {
+        public void shouldNotBeEqualToAnyInstanceThatIsNotACountry() throws Exception {
                 final Country country = new Country("DOES NOT MATTER");
 
                 assertEquals(false, country.equals(new Object()));
         }
 
         @Test
-        public void shouldEqualDifferentInstanceWhenBothCountryValuesAreTheSame() throws Exception {
+        public void shouldBeEqualToDifferentInstanceWhenBothCountryValuesAreTheSame() throws Exception {
                 final String country = "DOES NOT MATTER";
 
                 final Country left = new Country(country);
@@ -57,7 +57,7 @@ public class CountryEqualityTests {
         }
 
         @Test
-        public void shouldEqualDifferentInstanceWhenBothCountryValuesAreEqual() throws Exception {
+        public void shouldBeEqualToDifferentInstanceWhenBothCountryValuesAreEqual() throws Exception {
                 final Country left = new Country("DOES NOT MATTER");
                 final Country right = new Country("DOES NOT MATTER");
 
@@ -66,7 +66,7 @@ public class CountryEqualityTests {
         }
 
         @Test
-        public void shouldEqualDifferentInstanceWhenBothCountryValuesAreNull() throws Exception {
+        public void shouldBeEqualToDifferentInstanceWhenBothCountryValuesAreNull() throws Exception {
                 final Country left = new Country(null);
                 final Country right = new Country(null);
 
@@ -75,7 +75,35 @@ public class CountryEqualityTests {
         }
 
         @Test
-        public void shouldNotEqualDifferentInstanceWhenBothCountryValuesAreNotEqual() throws Exception {
+        public void shouldBeEqualToDifferentInstanceWhenBothCountryValuesAreEmpty() throws Exception {
+                final Country left = new Country("");
+                final Country right = new Country("");
+
+                assertNotSame(left, right);
+                assertEquals(true, left.equals(right));
+        }
+
+        @Test
+        public void shouldBeEqualToDifferentInstanceWhenCountryValueIsNullAndOtherCountryValueIsEmpty()
+            throws Exception {
+                final Country left = new Country(null);
+                final Country right = new Country("");
+
+                assertNotSame(left, right);
+                assertEquals(true, left.equals(right));
+        }
+
+        @Test
+        public void shouldBeEqualToDifferentInstanceWhenCountryValueIsEmptyAndOtherCountryValueIsNull() throws Exception {
+                final Country left = new Country("");
+                final Country right = new Country(null);
+
+                assertNotSame(left, right);
+                assertEquals(true, left.equals(right));
+        }
+
+        @Test
+        public void shouldNotBeEqualToDifferentInstanceWhenBothCountryValuesAreNotEqual() throws Exception {
                 final Country left = new Country("LEFT");
                 final Country right = new Country("RIGHT");
 
@@ -83,7 +111,7 @@ public class CountryEqualityTests {
         }
 
         @Test
-        public void shouldNotEqualDifferentInstanceWhenCountryValueIsNullAndOtherCountryValueIsNotNull()
+        public void shouldNotBeEqualToDifferentInstanceWhenCountryValueIsNullAndOtherCountryValueIsNotNullOrEmpty()
             throws Exception {
                 final Country left = new Country(null);
                 final Country right = new Country("DOES NOT MATTER");
@@ -92,7 +120,16 @@ public class CountryEqualityTests {
         }
 
         @Test
-        public void shouldNotEqualDifferentInstanceWhenCountryValueIsNotNullAndOtherCountryValueIsNull()
+        public void shouldNotBeEqualToDifferentInstanceWhenCountryValueIsEmptyAndOtherCountryValueIsNotNullOrEmpty()
+            throws Exception {
+                final Country left = new Country("");
+                final Country right = new Country("DOES NOT MATTER");
+
+                assertEquals(false, left.equals(right));
+        }
+
+        @Test
+        public void shouldNotBeEqualToDifferentInstanceWhenCountryValueIsNotNullOrEmptyAndOtherCountryValueIsNull()
             throws Exception {
                 final Country left = new Country("DOES NOT MATTER");
                 final Country right = new Country(null);
@@ -101,7 +138,16 @@ public class CountryEqualityTests {
         }
 
         @Test
-        public void equalsShouldBeCommutative() throws Exception {
+        public void shouldNotBeEqualToDifferentInstanceWhenCountryValueIsNotNullOrEmptyAndOtherCountryValueIsEmpty()
+            throws Exception {
+                final Country left = new Country("DOES NOT MATTER");
+                final Country right = new Country("");
+
+                assertEquals(false, left.equals(right));
+        }
+
+        @Test
+        public void shouldBeCommutative() throws Exception {
                 final Country left = new Country("DOES NOT MATTER");
                 final Country right = new Country("DOES NOT MATTER");
 
@@ -110,7 +156,7 @@ public class CountryEqualityTests {
         }
 
         @Test
-        public void equalsShouldBeTransitive() throws Exception {
+        public void shouldBeTransitive() throws Exception {
                 final Country left = new Country("DOES NOT MATTER");
                 final Country middle = new Country("DOES NOT MATTER");
                 final Country right = new Country("DOES NOT MATTER");

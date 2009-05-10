@@ -16,10 +16,14 @@
 
 package ozgevekent.domain.addresses;
 
+import ozgevekent.utilities.equalitators.StringEqualitator;
+
 /**
  * Understands geopolitical state boundaries.
  */
 public class Country {
+
+        private static final int DEFAULT_HASHCODE = 42;
 
         private final String country;
 
@@ -36,15 +40,7 @@ public class Country {
                 if (other instanceof Country) {
                         final Country otherCountry = (Country) other;
 
-                        if (country == otherCountry.country) {
-                                return true;
-                        }
-
-                        if (country == null) {
-                                return false;
-                        }
-
-                        return country.equals(otherCountry.country);
+                        return new StringEqualitator().areEqual(country, otherCountry.country);
                 }
 
                 return false;
@@ -52,8 +48,8 @@ public class Country {
 
         @Override
         public int hashCode() {
-                if (country == null) {
-                        return 42;
+                if (isNullOrEmpty(country)) {
+                        return DEFAULT_HASHCODE;
                 }
 
                 return country.hashCode();
@@ -61,10 +57,14 @@ public class Country {
 
         @Override
         public String toString() {
-                if (country == null) {
+                if (isNullOrEmpty(country)) {
                         return "";
                 }
 
                 return country;
+        }
+
+        private boolean isNullOrEmpty(final String value) {
+                return value == null || "".equals(value);
         }
 }

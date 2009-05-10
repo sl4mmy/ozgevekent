@@ -31,7 +31,14 @@ public class CountryToStringTests {
         }
 
         @Test
-        public void shouldBeCountryValueWhenCountryValueIsNotNull() throws Exception {
+        public void shouldBeEmptyStringWhenCountryValueIsEmpty() throws Exception {
+                final Country country = new Country("");
+
+                assertEquals("", country.toString());
+        }
+
+        @Test
+        public void shouldBeCountryValueWhenCountryValueIsNotNullOrEmpty() throws Exception {
                 final Country country = new Country("DOES NOT MATTER");
 
                 assertEquals("DOES NOT MATTER", country.toString());

@@ -9,7 +9,8 @@
   <component name="CheckStyle-IDEA">
     <option name="configuration">
       <map>
-        <entry key="check-test-classes" value="true" />
+        <entry key="check-test-classes" value="false" />
+        <entry key="config-file" value="$PROJECT_DIR$/checkstyle.xml" />
       </map>
     </option>
   </component>
@@ -298,6 +299,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/domain/domain.iml" filepath="$PROJECT_DIR$/domain/domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ozgevekent.iml" filepath="$PROJECT_DIR$/ozgevekent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utilities/utilities.iml" filepath="$PROJECT_DIR$/utilities/utilities.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" assert-keyword="true" jdk-15="true" project-jdk-name="1.5" project-jdk-type="JavaSDK">
@@ -488,12 +492,133 @@
     </library>
     <library name="Mockito">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/mockito/v1.7/mockito-all-1.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/mockito/v1.7/mockito-core-1.7.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/libs/mockito/v1.7/mockito-all-1.7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/mockito/v1.7/mockito-core-1.7.jar!/" />
       </SOURCES>
+    </library>
+    <library name="Struts">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/apache/struts/v2.1.6/struts2-core-2.1.6.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="XStream">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/xstream/v1.3.1/xstream-1.3.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="XWork">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/xwork/v2.1.2/xwork-2.1.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/libs/xwork/v2.1.2/xwork-2.1.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/libs/xwork/v2.1.2/xwork-2.1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Freemarker">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/freemarker/v2.3.15/freemarker.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="OGNL">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/ognl/v2.7.2/ognl-2.7.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/libs/ognl/v2.7.2/ognl-2.7.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/libs/ognl/v2.7.2/ognl-2.7.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Commons Logging">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/apache/commons/logging/v1.1.1/commons-logging-1.1.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/apache/commons/logging/v1.1.1/commons-logging-api-1.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/libs/apache/commons/logging/v1.1.1/commons-logging-1.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/libs/apache/commons/logging/v1.1.1/commons-logging-1.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Log4j">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/apache/log4j/v1.2.15/log4j-1.2.15.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="Sitemesh">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/sitemesh/v2.4.1/sitemesh-2.4.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="Commons FileUpload">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/apache/commons/fileupload/v1.2.1/commons-fileupload-1.2.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/libs/apache/commons/fileupload/v1.2.1/commons-fileupload-1.2.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/libs/apache/commons/fileupload/v1.2.1/commons-fileupload-1.2.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Javassist">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/javassist/v3.10.0/javassist.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="Checkstyle">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/checkstyle/v5.0/checkstyle-5.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="Google Collections">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/google/collections/v1.0-rc1/google-collect-1.0-rc1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/libs/google/collections/v1.0-rc1/src-1.0-rc1.zip!/" />
+      </SOURCES>
+    </library>
+    <library name="Commons Beanutils">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/apache/commons/beanutils/v1.8.0/commons-beanutils-1.8.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$PROJECT_DIR$/libs/apache/commons/beanutils/v1.8.0/commons-beanutils-1.8.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/libs/apache/commons/beanutils/v1.8.0/commons-beanutils-1.8.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="ANTLR">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/antlr/v3.1.3/antlr-3.1.3.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
     </library>
   </component>
 </project>

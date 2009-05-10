@@ -31,7 +31,14 @@ public class NameHashCodeTests {
         }
 
         @Test
-        public void shouldBeNameValueHashCodeWhenNameValueIsNotNull() throws Exception {
+        public void shouldBeFortyTwoWhenNameValueIsEmpty() throws Exception {
+                final Name name = new Name("");
+
+                assertEquals(42, name.hashCode());
+        }
+
+        @Test
+        public void shouldBeNameValueHashCodeWhenNameValueIsNotNullOrEmpty() throws Exception {
                 final int expected = "DOES NOT MATTER".hashCode();
 
                 final Name name = new Name("DOES NOT MATTER");

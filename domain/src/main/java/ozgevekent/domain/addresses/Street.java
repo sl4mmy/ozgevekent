@@ -16,10 +16,16 @@
 
 package ozgevekent.domain.addresses;
 
+import ozgevekent.utilities.equalitators.ArrayEqualitator;
+import ozgevekent.utilities.equalitators.StringEqualitator;
+import ozgevekent.utilities.prettyprinters.ArrayPrettyPrinter;
+
 /**
  * Understands how to distinguish a particular building within a neighborhood.
  */
 public class Street {
+
+        private static final int DEFAULT_HASHCODE = 42;
 
         private final String[] components;
 
@@ -37,15 +43,9 @@ public class Street {
                         final Street otherStreet = (Street) other;
                         final String[] otherComponents = otherStreet.components;
 
-                        if (components == otherComponents) {
-                                return true;
-                        }
+                        final StringEqualitator elementEqualitator = new StringEqualitator();
 
-                        if (components == null || otherComponents == null) {
-                                return false;
-                        }
-
-                        return areComponentsEqual(components, otherComponents);
+                        return new ArrayEqualitator<String>(elementEqualitator).areEqual(components, otherComponents);
                 }
 
                 return false;
@@ -54,75 +54,18 @@ public class Street {
         @Override
         public int hashCode() {
                 if (isNullOrEmpty(components)) {
-                        return 42;
+                        return DEFAULT_HASHCODE;
                 }
 
                 return components.hashCode();
         }
 
+        @Override
         public String toString() {
-                if (isNullOrEmpty(components)) {
-                        return "";
-                }
-
-                return join(components, "\n");
-        }
-
-        private boolean areComponentsEqual(final String[] left, final String[] right) {
-                if (left.length != right.length) {
-                        return false;
-                }
-
-                for (int index = 0; index < left.length; index++) {
-                        final String component = left[index];
-                        final String otherComponent = right[index];
-
-                        if (component == otherComponent) {
-                                continue;
-                        }
-
-                        if (component == null || not(component.equals(otherComponent))) {
-                                return false;
-                        }
-                }
-
-                return true;
-        }
-
-        private String emptyStringIfNull(final String value) {
-                if (value == null) {
-                        return "";
-                }
-
-                return value;
-        }
-
-        private boolean isLast(final int current, final int total) {
-                return current == total - 1;
+                return new ArrayPrettyPrinter<String>().prettify(components);
         }
 
         private boolean isNullOrEmpty(final String[] values) {
                 return values == null || values.length == 0;
-        }
-
-        private String join(final String[] values, final String separator) {
-                final int length = values.length;
-
-                final StringBuilder temp = new StringBuilder();
-                for (int index = 0; index < length; index++) {
-                        final String component = components[index];
-
-                        temp.append(emptyStringIfNull(component));
-
-                        if (not(isLast(index, length))) {
-                                temp.append(separator);
-                        }
-                }
-
-                return temp.toString();
-        }
-
-        private boolean not(final boolean expression) {
-                return !expression;
         }
 }

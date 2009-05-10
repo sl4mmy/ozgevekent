@@ -1,2 +1,9 @@
-.ide
+.ant-scripts/
+.ide/
+build*.xml
+hbm2ddl.properties
+local.properties
+local.template.properties
 ozgevekent.iws
+target/
+web/src/main/config/ssl/development.keystore

@@ -16,10 +16,14 @@
 
 package ozgevekent.domain;
 
+import ozgevekent.utilities.equalitators.StringEqualitator;
+
 /**
  * Understands how people are officially called.
  */
 public class Name {
+
+        private static final int DEFAULT_HASHCODE = 42;
 
         private final String name;
 
@@ -36,15 +40,7 @@ public class Name {
                 if (other instanceof Name) {
                         final Name otherName = (Name) other;
 
-                        if (name == otherName.name) {
-                                return true;
-                        }
-
-                        if (name == null) {
-                                return false;
-                        }
-
-                        return name.equals(otherName.name);
+                        return new StringEqualitator().areEqual(name, otherName.name);
                 }
 
                 return false;
@@ -52,8 +48,8 @@ public class Name {
 
         @Override
         public int hashCode() {
-                if (name == null) {
-                        return 42;
+                if (isNullOrEmpty(name)) {
+                        return DEFAULT_HASHCODE;
                 }
 
                 return name.hashCode();
@@ -61,10 +57,14 @@ public class Name {
 
         @Override
         public String toString() {
-                if (name == null) {
+                if (isNullOrEmpty(name)) {
                         return "";
                 }
 
                 return name;
+        }
+
+        private boolean isNullOrEmpty(final String value) {
+                return value == null || "".equals(value);
         }
 }

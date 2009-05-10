@@ -31,7 +31,14 @@ public class CountryHashCodeTests {
         }
 
         @Test
-        public void shouldBeCountryValueHashCodeWhenCountryValueIsNotNull() throws Exception {
+        public void shouldBeFortyTwoWhenCountryValueIsEmpty() throws Exception {
+                final Country country = new Country("");
+
+                assertEquals(42, country.hashCode());
+        }
+
+        @Test
+        public void shouldBeCountryValueHashCodeWhenCountryValueIsNotNullOrEmpty() throws Exception {
                 final int expected = "DOES NOT MATTER".hashCode();
 
                 final Country country = new Country("DOES NOT MATTER");
