@@ -95,10 +95,13 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/WEB-INF" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/config" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/public" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/webapp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/unit/WEB-INF" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/test/unit/config" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/test/unit/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/test/unit/public" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/test/unit/resources" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/test/unit/webapp" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
