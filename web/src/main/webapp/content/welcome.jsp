@@ -3,7 +3,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page trimDirectiveWhitespaces="true" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <%--
   Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
@@ -23,9 +22,10 @@
 
 <html>
 <head>
-        <title>Merhaba!</title>
+        <title>Ho&#x15F; Geldiniz!</title>
 </head>
 <body>
 <p>We're getting married!</p>
+<p><a href="/rsvp/">Please enter your contact information</a></p>
 </body>
 </html>

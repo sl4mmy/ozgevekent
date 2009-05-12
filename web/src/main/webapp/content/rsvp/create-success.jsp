@@ -1,8 +1,11 @@
-<?xml version="1.0"?>
-<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
-<!--
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
+<%--
   Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
 
   Permission to use, copy, modify, and/or distribute this software for any
@@ -16,9 +19,18 @@
   WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
   ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-  -->
+  --%>
 
-<struts>
-        <package name="default" extends="struts-default">
-        </package>
-</struts>
+<html>
+<head>
+        <title>Thank You!</title>
+</head>
+<body>
+<p>Thank you for providing your contact information!</p>
+<ul>
+        <li><s:property value="name"/></li>
+        <li><s:property value="emailAddress"/></li>
+        <li><s:property value="street"/></li>
+</ul>
+</body>
+</html>
