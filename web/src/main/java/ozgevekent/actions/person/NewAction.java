@@ -14,12 +14,12 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-package ozgevekent.actions.rsvp;
+package ozgevekent.actions.person;
 
 /**
- * Understands how to persist a user's personal information.
+ * Understands how to create personal information for an individual.
  */
-public class CreateAction {
+public class NewAction {
 
         private String name;
 
