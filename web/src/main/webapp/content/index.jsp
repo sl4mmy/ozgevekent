@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page trimDirectiveWhitespaces="true" %>
-
 <%--
   Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
 
@@ -19,6 +14,10 @@
   ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
   --%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page trimDirectiveWhitespaces="true" %>
 
 <html>
 <head>

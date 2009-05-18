@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-
 <!--
   Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
 
@@ -15,7 +14,6 @@
   ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
   -->
-
 <decorators>
         <decorator name="main" page="/WEB-INF/decorators/main.jsp">
                 <pattern>/*</pattern>
