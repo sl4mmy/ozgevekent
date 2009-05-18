@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page trimDirectiveWhitespaces="true" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
-
 <%--
   Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
 
@@ -20,17 +14,26 @@
   ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
   --%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <html>
 <head>
-        <title>Thank You!</title>
+        <title>Your Contact Information</title>
 </head>
 <body>
-<p>Thank you for providing your contact information!</p>
-<ul>
-        <li><s:property value="name"/></li>
-        <li><s:property value="emailAddress"/></li>
-        <li><s:property value="street"/></li>
-</ul>
+<s:form action="create" namespace="/rsvp" method="post">
+        <s:textfield name="name" label="Name" size="32"/>
+        <s:textfield name="emailAddress" label="Email Address" size="32"/>
+        <s:textfield name="street" label="Street" size="32"/>
+        <s:textfield name="city" label="City" size="32"/>
+        <s:textfield name="state" label="State" size="32"/>
+        <s:textfield name="postalCode" label="Postal Code" size="32"/>
+        <s:textfield name="country" label="Country" size="32"/>
+        <s:submit value="Save"/>
+</s:form>
 </body>
 </html>
