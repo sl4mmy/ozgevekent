@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
+
+  Permission to use, copy, modify, and/or distribute this software for any
+  purpose with or without fee is hereby granted, provided that the above
+  copyright notice and this permission notice appear in all copies.
+
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+  -->
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+        <package name="default" extends="struts-default">
+                <action name="*" class="ozgevekent.actions.DummyAction">
+                        <result>/WEB-INF/content/404.jsp</result>
+                </action>
+        </package>
+
+        <package name="root" extends="struts-default" namespace="/">
+                <action name="" class="ozgevekent.actions.DummyAction">
+                        <result>/WEB-INF/content/index.jsp</result>
+                </action>
+
+                <action name="main" class="ozgevekent.actions.DummyAction">
+                        <result>/WEB-INF/content/main.jsp</result>
+                </action>
+        </package>
+
+        <package name="person" extends="struts-default" namespace="/person">
+                <action name="" class="ozgevekent.actions.DummyAction">
+                        <result>/WEB-INF/content/person/index.jsp</result>
+                </action>
+
+                <action name="new" class="ozgevekent.actions.person.NewAction">
+                        <result>/WEB-INF/content/person/new-success.jsp</result>
+                </action>
+        </package>
+</struts>

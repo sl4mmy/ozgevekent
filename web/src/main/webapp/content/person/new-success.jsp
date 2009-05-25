@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <%--
   Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
 
@@ -14,22 +13,23 @@
   ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
   --%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <html>
 <head>
-        <title>Thank You!</title>
+        <title>Te&#x15F;ekk&#xFC;r Ederiz! | Thank You!</title>
 </head>
 <body>
-<p>Thank you for providing your contact information!</p>
+<p>Te&#x15F;ekk&#xFC;r Ederiz!  Thank you for providing your contact information!</p>
 <ul>
         <li><s:property value="name"/></li>
         <li><s:property value="emailAddress"/></li>
-        <li><s:property value="street"/></li>
+        <s:iterator value="street">
+                <li><s:property/></li>
+        </s:iterator>
 </ul>
 </body>
 </html>

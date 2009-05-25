@@ -21,40 +21,132 @@
 
 * {
         margin: 0;
+        padding: 0;
 }
 
 html, body {
         background-color: #FFF;
+        color: #666;
         font-family: 'lucida sans unicode', 'lucida grande', helvetica, 'bitstream vera sans', sans-serif;
         height: 100%;
         line-height: 1.5em;
 }
 
-.wrapper {
+fieldset {
+        background-color: #EEE;
+        border-style: none;
+        border-top: 2px solid #AAA;
+        margin-bottom: -1em;
+        padding-bottom: 1em;
+}
+
+fieldset ol {
+        list-style: none;
+        padding-left: 1em;
+        padding-top: 3.0em;
+}
+
+fieldset li {
+        padding-bottom: 0.5em;
+}
+
+fieldset.submit {
+        background-color: #FFF;
+        margin: 1em 0 1em;
+        padding-left: 1em;
+        padding-top: 1em;
+}
+
+label {
+        display: block;
+}
+
+label em {
+        color: #00A;
+        font-size: 75%;
+        font-style: normal;
+        text-transform: uppercase;
+}
+
+label strong {
+        color: #A00;
+        display: block;
+        font-size: 75%;
+        font-weight: normal;
+        text-transform: uppercase;
+}
+
+legend {
+        color: #333;
+        font-weight: bold;
+        margin-left: 1em;
+}
+
+legend span {
+        font-size: x-large;
+        margin-top: 0.5em;
+        position: absolute;
+}
+
+p {
+        margin: 0 0 1.5em;
+}
+
+#content {
+        font-size: large;
+        margin: 0 10% 0 10%;
+        padding-top: 5%;
+}
+
+#copyright {
+        color: #FFF;
+        font-size: medium;
+        text-align: center;
+}
+
+#footer {
+        background-color: #AAA;
+        border-top: 5px solid #CCC;
+        clear: both;
+        height: 4em;
+}
+
+#header {
+        background-color: #EEE;
+        border-bottom: 2px solid #AAA;
+        height: 1.5em;
+        left: 0;
+        line-height: 1.5em;
+        text-align: right;
+        top: 0;
+        width: 100%;
+}
+
+#push {
+        height: 4em;
+}
+
+#wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
         margin: 0 auto -4em;
 }
 
-.footer {
-        background-color: #00F;
-        height: 4em;
-}
-
-.push {
-        height: 4em;
-}
-
-.content {
-        color: #000;
-        font-size: x-large;
-        margin: 0 10% 0 15%;
-        padding-top: 5%;
-}
-
-.copyright {
-        color: #FFF;
-        font-size: medium;
+.center {
+        padding: 2em 0 2em;
         text-align: center;
+        width: 100%;
+}
+
+.left {
+        float: left;
+        text-align: center;
+        width: 49%;
+}
+
+.right {
+        float: left;
+        text-align: center;
+        width: 49%;
 }

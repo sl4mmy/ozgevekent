@@ -16,6 +16,8 @@
 
 package ozgevekent.actions.person;
 
+import java.util.List;
+
 /**
  * Understands how to create personal information for an individual.
  */
@@ -25,7 +27,7 @@ public class NewAction {
 
         private String emailAddress;
 
-        private String[] street;
+        private List<String> street;
 
         private String city;
 
@@ -55,11 +57,11 @@ public class NewAction {
                 this.emailAddress = emailAddress;
         }
 
-        public String[] getStreet() {
+        public List<String> getStreet() {
                 return street;
         }
 
-        public void setStreet(final String[] street) {
+        public void setStreet(final List<String> street) {
                 this.street = street;
         }
 

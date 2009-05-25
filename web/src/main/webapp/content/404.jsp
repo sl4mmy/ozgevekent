@@ -18,17 +18,17 @@
 
 <html>
 <head>
-        <title>Merhaba!</title>
+        <title>| Oops! Unable to find requested page</title>
 </head>
 <body>
 <div class="center">
-        <p>Ozge ve Kent</p>
+        <h1>Allalla!  Oops! Unable to find requested page</h1>
 </div>
 <div class="left">
-        <p><a href="/main">Ho&#x15F; Geldiniz!</a></p>
+        <p><a href="/main">Main gidiyorsiniz?</a></p>
 </div>
 <div class="right">
-        <p><a href="/main">Welcome!</a></p>
+        <p>Would you like to <a href="/main">return to the main page,</a> instead?</p>
 </div>
 </body>
 </html>
