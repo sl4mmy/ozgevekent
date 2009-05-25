@@ -41,7 +41,6 @@
         <option name="BLANK_LINES_BEFORE_PACKAGE" value="1" />
         <option name="BLANK_LINES_AROUND_FIELD" value="1" />
         <option name="BLANK_LINES_AFTER_CLASS_HEADER" value="1" />
-        <option name="SPACE_WITHIN_ARRAY_INITIALIZER_BRACES" value="true" />
         <option name="SPACE_BEFORE_ARRAY_INITIALIZER_LBRACE" value="true" />
         <option name="GENERATE_FINAL_LOCALS" value="true" />
         <option name="GENERATE_FINAL_PARAMETERS" value="true" />
@@ -300,6 +299,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/domain/domain.iml" filepath="$PROJECT_DIR$/domain/domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/ozgevekent.iml" filepath="$PROJECT_DIR$/ozgevekent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/persistence/persistence.iml" filepath="$PROJECT_DIR$/persistence/persistence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/services.iml" filepath="$PROJECT_DIR$/services/services.iml" />
       <module fileurl="file://$PROJECT_DIR$/utilities/utilities.iml" filepath="$PROJECT_DIR$/utilities/utilities.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
     </modules>
@@ -325,7 +326,7 @@
     <option name="myVersion" value="123" />
   </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="" vcs="" />
   </component>
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
   <component name="libraryTable">
@@ -349,7 +350,7 @@
     </library>
     <library name="Struts">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/apache/struts/v2.1.6/struts2-core-2.1.6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/apache/struts/v2.1.7-SNAPSHOT/struts2-core-2.1.7-SNAPSHOT.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
@@ -363,13 +364,13 @@
     </library>
     <library name="XWork">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/xwork/v2.1.2/xwork-2.1.2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/apache/struts/v2.1.7-SNAPSHOT/xwork-core-2.1.4-SNAPSHOT.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$PROJECT_DIR$/libs/xwork/v2.1.2/xwork-2.1.2-javadoc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/xwork/v2.1.3/xwork-2.1.3-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/libs/xwork/v2.1.2/xwork-2.1.2-sources.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/xwork/v2.1.3/xwork-2.1.3-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Freemarker">
@@ -411,7 +412,7 @@
     </library>
     <library name="Sitemesh">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/sitemesh/v2.4.1/sitemesh-2.4.1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/sitemesh/v2.4.2/sitemesh-2.4.2.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
@@ -471,6 +472,28 @@
     <library name="Servlet">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/libs/jetty/v6.1.17/lib/servlet-api-2.5-20081211.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="Google AppEngine">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/google/appengine-java-sdk/v1.2.1/lib/user/appengine-api-1.0-sdk-1.2.1.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="Java Data Objects">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/google/appengine-java-sdk/v1.2.1/lib/user/orm/jdo2-api-2.3-SNAPSHOT.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="DataNucleus">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/google/appengine-java-sdk/v1.2.1/lib/user/orm/datanucleus-core-1.1.0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/google/appengine-java-sdk/v1.2.1/lib/user/orm/datanucleus-appengine-1.0.1.final.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />

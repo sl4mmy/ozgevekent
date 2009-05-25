@@ -14,18 +14,20 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-package ozgevekent.actions.rsvp;
+package ozgevekent.actions.person;
+
+import java.util.List;
 
 /**
- * Understands how to persist a user's personal information.
+ * Understands how to create personal information for an individual.
  */
-public class CreateAction {
+public class NewAction {
 
         private String name;
 
         private String emailAddress;
 
-        private String[] street;
+        private List<String> street;
 
         private String city;
 
@@ -55,11 +57,11 @@ public class CreateAction {
                 this.emailAddress = emailAddress;
         }
 
-        public String[] getStreet() {
+        public List<String> getStreet() {
                 return street;
         }
 
-        public void setStreet(final String[] street) {
+        public void setStreet(final List<String> street) {
                 this.street = street;
         }
 

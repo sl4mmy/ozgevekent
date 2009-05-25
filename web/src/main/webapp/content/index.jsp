@@ -1,9 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page trimDirectiveWhitespaces="true" %>
-
 <%--
   Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
 
@@ -20,11 +14,21 @@
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
   --%>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
 <html>
 <head>
         <title>Merhaba!</title>
 </head>
 <body>
-<p><a href="/welcome">Ho&#x15F; Geldiniz! Welcome!</a></p>
+<div class="center">
+        <p>Ozge ve Kent</p>
+</div>
+<div class="left">
+        <p><a href="/main">Ho&#x15F; Geldiniz!</a></p>
+</div>
+<div class="right">
+        <p><a href="/main">Welcome!</a></p>
+</div>
 </body>
 </html>

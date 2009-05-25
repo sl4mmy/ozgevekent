@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<%--
   Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
 
   Permission to use, copy, modify, and/or distribute this software for any
@@ -13,9 +12,23 @@
   WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
   ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-  -->
-<decorators>
-        <decorator name="main" page="/WEB-INF/decorators/main.jsp">
-                <pattern>/*</pattern>
-        </decorator>
-</decorators>
+  --%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+<head>
+        <title>| Oops! Unable to find requested page</title>
+</head>
+<body>
+<div class="center">
+        <h1>Allalla!  Oops! Unable to find requested page</h1>
+</div>
+<div class="left">
+        <p><a href="/main">Main gidiyorsiniz?</a></p>
+</div>
+<div class="right">
+        <p>Would you like to <a href="/main">return to the main page,</a> instead?</p>
+</div>
+</body>
+</html>

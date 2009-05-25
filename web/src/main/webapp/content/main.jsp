@@ -1,9 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page trimDirectiveWhitespaces="true" %>
-
 <%--
   Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
 
@@ -20,12 +14,24 @@
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
   --%>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
 <html>
 <head>
-        <title>Ho&#x15F; Geldiniz!</title>
+        <title>Ho&#x15F; Geldiniz!  Welcome!</title>
 </head>
 <body>
-<p>We're getting married!</p>
-<p><a href="/rsvp/">Please enter your contact information</a></p>
+<div class="center">
+        <p>Biz marriageiyoruz!  We're getting married!</p>
+</div>
+<div class="left">
+        <p><a href="/person/">Lutfen...</a></p>
+</div>
+<div class="right">
+        <p>Together with their parents, Ozge and Kent invite you to join their joyous celebration of marriage.</p>
+
+        <p>Please <a href="/person/">enter your contact information</a> if you would like to receive more information.
+        </p>
+</div>
 </body>
 </html>

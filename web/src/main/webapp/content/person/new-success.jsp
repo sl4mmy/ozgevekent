@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<%--
   Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
 
   Permission to use, copy, modify, and/or distribute this software for any
@@ -13,9 +12,24 @@
   WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
   ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-  -->
-<decorators>
-        <decorator name="main" page="/WEB-INF/decorators/main.jsp">
-                <pattern>/*</pattern>
-        </decorator>
-</decorators>
+  --%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
+<html>
+<head>
+        <title>Te&#x15F;ekk&#xFC;r Ederiz! | Thank You!</title>
+</head>
+<body>
+<p>Te&#x15F;ekk&#xFC;r Ederiz!  Thank you for providing your contact information!</p>
+<ul>
+        <li><s:property value="name"/></li>
+        <li><s:property value="emailAddress"/></li>
+        <s:iterator value="street">
+                <li><s:property/></li>
+        </s:iterator>
+</ul>
+</body>
+</html>
