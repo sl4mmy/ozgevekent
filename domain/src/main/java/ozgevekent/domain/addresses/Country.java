@@ -18,14 +18,24 @@ package ozgevekent.domain.addresses;
 
 import ozgevekent.utilities.equalitators.StringEqualitator;
 
+import javax.jdo.annotations.EmbeddedOnly;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+
 /**
  * Understands geopolitical state boundaries.
  */
+@PersistenceCapable
+@EmbeddedOnly
 public class Country {
 
         private static final int DEFAULT_HASHCODE = 42;
 
-        private final String country;
+        @Persistent
+        private String country;
+
+        protected Country() {
+        }
 
         public Country(final String country) {
                 this.country = country;

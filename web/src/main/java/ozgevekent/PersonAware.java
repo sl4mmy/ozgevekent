@@ -14,14 +14,14 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-package ozgevekent.actions;
+package ozgevekent;
+
+import ozgevekent.domain.Person;
 
 /**
- * Understands how to handle requests for the root of a Struts2 package's namespace.
+ * Understands framework components that deal with people.
  */
-public class DummyAction {
+public interface PersonAware {
 
-        public String execute() throws Exception {
-                return "success";
-        }
+        void setPerson(final Person person);
 }

@@ -21,5 +21,17 @@ package ozgevekent.domain;
  */
 public interface Account {
 
+        Account ANONYMOUS = new Account() {
+                public boolean isAdministrator() {
+                        return false;
+                }
+
+                public boolean isLoggedIn() {
+                        return false;
+                }
+        };
+
         boolean isAdministrator();
+
+        boolean isLoggedIn();
 }

@@ -18,14 +18,24 @@ package ozgevekent.domain.addresses;
 
 import ozgevekent.utilities.equalitators.StringEqualitator;
 
+import javax.jdo.annotations.EmbeddedOnly;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+
 /**
  * Understands how to identify municipalities.
  */
+@PersistenceCapable
+@EmbeddedOnly
 public class City {
 
         private static final int DEFAULT_HASHCODE = 42;
 
-        private final String city;
+        @Persistent
+        private String city;
+
+        protected City() {
+        }
 
         public City(final String city) {
                 this.city = city;

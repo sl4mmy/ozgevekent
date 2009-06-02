@@ -57,6 +57,10 @@ fieldset.submit {
         padding-top: 1em;
 }
 
+input {
+        height: 2.25em;
+}
+
 label {
         display: block;
 }
@@ -149,4 +153,8 @@ p {
         float: left;
         text-align: center;
         width: 49%;
+}
+
+.error {
+        color: #A00;
 }

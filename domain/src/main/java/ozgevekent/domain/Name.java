@@ -18,14 +18,24 @@ package ozgevekent.domain;
 
 import ozgevekent.utilities.equalitators.StringEqualitator;
 
+import javax.jdo.annotations.EmbeddedOnly;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+
 /**
  * Understands how people are officially called.
  */
+@PersistenceCapable
+@EmbeddedOnly
 public class Name {
 
         private static final int DEFAULT_HASHCODE = 42;
 
-        private final String name;
+        @Persistent
+        private String name;
+
+        protected Name() {
+        }
 
         public Name(final String name) {
                 this.name = name;

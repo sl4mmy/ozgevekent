@@ -16,84 +16,60 @@
 
 package ozgevekent.actions.person;
 
+import com.opensymphony.xwork2.Preparable;
+import com.opensymphony.xwork2.validator.annotations.EmailValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.Validations;
+import com.opensymphony.xwork2.validator.annotations.ValidatorType;
+import ozgevekent.PersonAware;
+import ozgevekent.services.MailService;
+import ozgevekent.domain.Person;
+import ozgevekent.persistence.DAO;
+
+import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Understands how to create personal information for an individual.
+ * Understands how to create personal information for an individual human being.
  */
-public class NewAction {
+public class NewAction extends PersonParameters implements PersonAware, Preparable {
 
-        private String name;
+        private Person person;
 
-        private String emailAddress;
-
-        private List<String> street;
-
-        private String city;
-
-        private String state;
-
-        private String postalCode;
-
-        private String country;
-
+        @Validations(
+            requiredStrings = {
+                    @RequiredStringValidator(type = ValidatorType.FIELD, fieldName = "name",
+                        message = "Please enter your name"),
+                    @RequiredStringValidator(type = ValidatorType.FIELD, fieldName = "emailAddress",
+                        message = "Please enter your email address")
+                },
+            emails = {
+                    @EmailValidator(type = ValidatorType.FIELD, fieldName = "emailAddress",
+                        message = "Please enter a valid email address")
+                }
+        )
         public String execute() throws Exception {
+                final DAO<Person> dao = new DAO<Person>();
+                person = dao.save(person);
+                final MailService mailService = new MailService();
+                mailService.sendNewPersonMail(person);
                 return "success";
         }
 
-        public String getName() {
-                return name;
+        public void prepare() throws Exception {
+                final List<String> currentStreet = getStreet();
+                if (currentStreet == null || currentStreet.size() == 0) {
+                        final List<String> temp = new LinkedList<String>();
+                        temp.add("");
+                        setStreet(temp);
+                }
         }
 
-        public void setName(final String name) {
-                this.name = name;
+        public Person getPerson() {
+                return person;
         }
 
-        public String getEmailAddress() {
-                return emailAddress;
-        }
-
-        public void setEmailAddress(final String emailAddress) {
-                this.emailAddress = emailAddress;
-        }
-
-        public List<String> getStreet() {
-                return street;
-        }
-
-        public void setStreet(final List<String> street) {
-                this.street = street;
-        }
-
-        public String getCity() {
-                return city;
-        }
-
-        public void setCity(final String city) {
-                this.city = city;
-        }
-
-        public String getState() {
-                return state;
-        }
-
-        public void setState(final String state) {
-                this.state = state;
-        }
-
-        public String getPostalCode() {
-                return postalCode;
-        }
-
-        public void setPostalCode(final String postalCode) {
-                this.postalCode = postalCode;
-        }
-
-        public String getCountry() {
-                return country;
-        }
-
-        public void setCountry(final String country) {
-                this.country = country;
+        public void setPerson(final Person person) {
+                this.person = person;
         }
 }

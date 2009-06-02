@@ -33,4 +33,8 @@ public class CustomAccount implements Account {
         public boolean isAdministrator() {
                 return Role.SUPERUSER == role;
         }
+
+        public boolean isLoggedIn() {
+                return true;
+        }
 }

@@ -18,29 +18,20 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-        <package name="default" extends="struts-default">
-                <action name="*" class="ozgevekent.actions.DummyAction">
-                        <result>/WEB-INF/content/404.jsp</result>
-                </action>
+        <package name="custom-conventions" extends="convention-default">
+                <interceptors>
+                        <interceptor name="createPerson" class="ozgevekent.interceptors.person.CreateInterceptor"/>
+                        <interceptor-stack name="custom-convention-stack">
+                                <interceptor-ref name="paramsPrepareParamsStack">
+                                        <param name="validation.validateAnnotatedMethodOnly">true</param>
+                                </interceptor-ref>
+                                <interceptor-ref name="createPerson"/>
+                        </interceptor-stack>
+                </interceptors>
+
+                <default-interceptor-ref name="custom-convention-stack"/>
         </package>
 
-        <package name="root" extends="struts-default" namespace="/">
-                <action name="" class="ozgevekent.actions.DummyAction">
-                        <result>/WEB-INF/content/index.jsp</result>
-                </action>
-
-                <action name="main" class="ozgevekent.actions.DummyAction">
-                        <result>/WEB-INF/content/main.jsp</result>
-                </action>
-        </package>
-
-        <package name="person" extends="struts-default" namespace="/person">
-                <action name="" class="ozgevekent.actions.DummyAction">
-                        <result>/WEB-INF/content/person/index.jsp</result>
-                </action>
-
-                <action name="new" class="ozgevekent.actions.person.NewAction">
-                        <result>/WEB-INF/content/person/new-success.jsp</result>
-                </action>
-        </package>
+        <constant name="struts.convention.action.includeJars" value=".*/web-.*?jar(!/)?"/>
+        <constant name="struts.convention.default.parent.package" value="custom-conventions"/>
 </struts>

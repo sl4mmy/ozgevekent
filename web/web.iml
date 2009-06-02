@@ -108,6 +108,8 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="domain" />
+    <orderEntry type="module" module-name="persistence" />
+    <orderEntry type="module" module-name="services" />
     <orderEntry type="module" module-name="utilities" />
     <orderEntry type="library" name="Commons FileUpload" level="project" />
     <orderEntry type="library" name="Commons Logging" level="project" />

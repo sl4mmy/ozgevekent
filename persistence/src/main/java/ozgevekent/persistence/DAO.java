@@ -19,6 +19,7 @@ package ozgevekent.persistence;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
+import javax.jdo.Transaction;
 
 /**
  * Understands how to interact with persistent datastores.
@@ -31,12 +32,22 @@ public class DAO<T> {
             JDOHelper.getPersistenceManagerFactory("transactions-optional");
 
         public T save(final T entity) {
-                final PersistenceManager persistenceManager =
-                    PERSISTENCE_MANAGER_FACTORY.getPersistenceManager();
+                final PersistenceManager persistenceManager = PERSISTENCE_MANAGER_FACTORY.getPersistenceManager();
+                final Transaction transaction = persistenceManager.currentTransaction();
 
                 try {
-                        return persistenceManager.makePersistent(entity);
+                        transaction.begin();
+
+                        final T result = persistenceManager.makePersistent(entity);
+
+                        transaction.commit();
+
+                        return result;
                 } finally {
+                        if (transaction.isActive()) {
+                                transaction.rollback();
+                        }
+
                         persistenceManager.close();
                 }
         }

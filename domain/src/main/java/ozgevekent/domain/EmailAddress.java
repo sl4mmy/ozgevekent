@@ -18,14 +18,24 @@ package ozgevekent.domain;
 
 import ozgevekent.utilities.equalitators.StringEqualitator;
 
+import javax.jdo.annotations.EmbeddedOnly;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+
 /**
  * Understands how to identify modern SMTP mailboxes.
  */
+@PersistenceCapable
+@EmbeddedOnly
 public class EmailAddress {
 
         private static final int DEFAULT_HASHCODE = 42;
 
-        private final String emailAddress;
+        @Persistent
+        private String emailAddress;
+
+        protected EmailAddress() {
+        }
 
         public EmailAddress(final String emailAddress) {
                 this.emailAddress = emailAddress;

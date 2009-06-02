@@ -21,6 +21,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import ozgevekent.domain.addresses.Street;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class StreetHashCodeTests {
 
         @Test
@@ -39,7 +42,30 @@ public class StreetHashCodeTests {
 
         @Test
         public void shouldBeComponentsHashCodeWhenComponentsIsNotNullOrEmpty() throws Exception {
-                final String[] components = { "DOES", "NOT", "MATTER" };
+                final List<Component> components = new LinkedList<Component>() {
+                        {
+                                add(new Component("DOES"));
+                                add(new Component("NOT"));
+                                add(new Component("MATTER"));
+                        }
+                };
+
+                final int expected = components.hashCode();
+
+                final Street street = new Street(components);
+
+                assertEquals(expected, street.hashCode());
+        }
+
+        @Test
+        public void shouldNotThrowNullPointerExceptionIfAnyComponentsAreNull() throws Exception {
+                final List<Component> components = new LinkedList<Component>() {
+                        {
+                                add(null);
+                                add(null);
+                                add(null);
+                        }
+                };
 
                 final int expected = components.hashCode();
 
@@ -50,7 +76,13 @@ public class StreetHashCodeTests {
 
         @Test
         public void shouldNotThrowNullPointerExceptionIfAnyComponentValuesAreNull() throws Exception {
-                final String[] components = new String[] { null, null, null };
+                final List<Component> components = new LinkedList<Component>() {
+                        {
+                                add(new Component(null));
+                                add(new Component(null));
+                                add(new Component(null));
+                        }
+                };
 
                 final int expected = components.hashCode();
 

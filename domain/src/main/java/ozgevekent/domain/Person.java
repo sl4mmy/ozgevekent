@@ -16,20 +16,40 @@
 
 package ozgevekent.domain;
 
+import com.google.appengine.api.datastore.Key;
+
+import javax.jdo.annotations.Embedded;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
 /**
  * Understands individual human beings.
  */
+@PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Person {
 
         private static final int PRIME = 31;
 
-        private final Address address;
+        @PrimaryKey
+        @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+        private Key key;
 
-        private final EmailAddress emailAddress;
+        @Persistent
+        private Address address;
 
-        private final Name name;
+        @Persistent
+        @Embedded
+        private EmailAddress emailAddress;
 
-        private long id;
+        @Persistent
+        @Embedded
+        private Name name;
+
+        protected Person() {
+        }
 
         public Person(final Name name, final EmailAddress emailAddress, final Address address) {
                 this.name = name;

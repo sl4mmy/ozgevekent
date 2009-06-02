@@ -16,28 +16,56 @@
 
 package ozgevekent.domain;
 
+import com.google.appengine.api.datastore.Key;
 import ozgevekent.domain.addresses.City;
 import ozgevekent.domain.addresses.Country;
 import ozgevekent.domain.addresses.PostalCode;
 import ozgevekent.domain.addresses.State;
 import ozgevekent.domain.addresses.Street;
 
+import javax.jdo.annotations.Embedded;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
 /**
  * Understands how to uniquely identify physical locations.
  */
+@PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class Address {
 
         private static final int PRIME = 31;
 
-        private final City city;
+        @PrimaryKey
+        @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+        private Key key;
 
-        private final Country country;
+        @Persistent
+        @Embedded
+        private City city;
 
-        private final PostalCode postalCode;
+        @Persistent
+        @Embedded
+        private Country country;
 
-        private final Street street;
+        @Persistent(mappedBy = "address")
+        private Person person;
 
-        private final State state;
+        @Persistent
+        @Embedded
+        private PostalCode postalCode;
+
+        @Persistent
+        private Street street;
+
+        @Persistent
+        @Embedded
+        private State state;
+
+        protected Address() {
+        }
 
         public Address(final PostalCode postalCode, final Country country, final State state, final City city,
             final Street street) {

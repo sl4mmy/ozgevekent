@@ -41,24 +41,24 @@
                 <legend><span>/Mailing Address</span></legend>
                 <ol>
                         <li>
-                                <label for="street">Sokak <em>()</em>/Street <em>(required)</em></label>
+                                <label for="street">Sokak/Street</label>
                                 <input id="street" name="street[0]" class="text" type="text" size="64"/>
                                 <a href="#street" onclick="add_street(); return false;">/Add another line</a>
                         </li>
                         <li>
-                                <label for="city">Kent <em>()</em>/City <em>(required)</em></label>
+                                <label for="city">Kent/City</label>
                                 <input id="city" name="city" class="text" type="text" size="64"/>
                         </li>
                         <li>
-                                <label for="state"><em>()</em>/State <em>(required)</em></label>
+                                <label for="state">/State</label>
                                 <input id="state" name="state" class="text" type="text" size="64"/>
                         </li>
                         <li>
-                                <label for="postalCode"><em>()</em>/Postal Code <em>(required)</em></label>
+                                <label for="postalCode">/Postal Code</label>
                                 <input id="postalCode" name="postalCode" class="text" type="text" size="64"/>
                         </li>
                         <li>
-                                <label for="country"><em>()</em>/Country <em>(required)</em></label>
+                                <label for="country">/Country</label>
                                 <input id="country" name="country" class="text" type="text" size="64"/>
                         </li>
                 </ol>

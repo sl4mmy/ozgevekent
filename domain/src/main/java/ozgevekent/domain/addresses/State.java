@@ -18,14 +18,24 @@ package ozgevekent.domain.addresses;
 
 import ozgevekent.utilities.equalitators.StringEqualitator;
 
+import javax.jdo.annotations.EmbeddedOnly;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+
 /**
- * Understands .
+ * Understands sub-national political entities.
  */
+@PersistenceCapable
+@EmbeddedOnly
 public class State {
 
         private static final int DEFAULT_HASHCODE = 42;
 
-        private final String state;
+        @Persistent
+        private String state;
+
+        protected State() {
+        }
 
         public State(final String state) {
                 this.state = state;

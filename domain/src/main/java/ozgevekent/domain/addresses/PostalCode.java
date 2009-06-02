@@ -18,17 +18,27 @@ package ozgevekent.domain.addresses;
 
 import ozgevekent.utilities.equalitators.StringEqualitator;
 
+import javax.jdo.annotations.EmbeddedOnly;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+
 /**
  * Understands how pieces of mail are automatically sorted.
  */
+@PersistenceCapable
+@EmbeddedOnly
 public class PostalCode {
 
         private static final int DEFAULT_HASHCODE = 42;
 
-        private final String code;
+        @Persistent
+        private String postalCode;
 
-        public PostalCode(final String code) {
-                this.code = code;
+        protected PostalCode() {
+        }
+
+        public PostalCode(final String postalCode) {
+                this.postalCode = postalCode;
         }
 
         @Override
@@ -40,7 +50,7 @@ public class PostalCode {
                 if (other instanceof PostalCode) {
                         final PostalCode otherPostalCode = (PostalCode) other;
 
-                        return new StringEqualitator().areEqual(code, otherPostalCode.code);
+                        return new StringEqualitator().areEqual(postalCode, otherPostalCode.postalCode);
                 }
 
                 return false;
@@ -48,20 +58,20 @@ public class PostalCode {
 
         @Override
         public int hashCode() {
-                if (isNullOrEmpty(code)) {
+                if (isNullOrEmpty(postalCode)) {
                         return DEFAULT_HASHCODE;
                 }
 
-                return code.hashCode();
+                return postalCode.hashCode();
         }
 
         @Override
         public String toString() {
-                if (isNullOrEmpty(code)) {
+                if (isNullOrEmpty(postalCode)) {
                         return "";
                 }
 
-                return code;
+                return postalCode;
         }
 
         private boolean isNullOrEmpty(final String value) {

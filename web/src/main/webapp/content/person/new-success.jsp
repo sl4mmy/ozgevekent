@@ -23,13 +23,9 @@
         <title>Te&#x15F;ekk&#xFC;r Ederiz! | Thank You!</title>
 </head>
 <body>
-<p>Te&#x15F;ekk&#xFC;r Ederiz!  Thank you for providing your contact information!</p>
+<p>Te&#x15F;ekk&#xFC;r Ederiz! Thank you for providing your contact information!</p>
 <ul>
-        <li><s:property value="name"/></li>
-        <li><s:property value="emailAddress"/></li>
-        <s:iterator value="street">
-                <li><s:property/></li>
-        </s:iterator>
+        <li><s:property value="person"/></li>
 </ul>
 </body>
 </html>
