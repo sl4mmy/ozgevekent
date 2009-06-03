@@ -29,12 +29,13 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+import java.io.Serializable;
 
 /**
  * Understands how to uniquely identify physical locations.
  */
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
-public class Address {
+public class Address implements Serializable {
 
         private static final int PRIME = 31;
 

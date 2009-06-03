@@ -17,6 +17,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 
 <html version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -35,7 +36,7 @@
 <body>
 <div id="wrapper">
         <div id="header">
-                <a href="/login">Google login</a> | <a href="/account/create">Non-Google account</a>
+                <s:action name="header" namespace="/account" executeResult="true" ignoreContextParams="true"/>
         </div>
         <div id="content">
                 <decorator:body/>

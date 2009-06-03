@@ -21,13 +21,14 @@ import ozgevekent.utilities.equalitators.StringEqualitator;
 import javax.jdo.annotations.EmbeddedOnly;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
+import java.io.Serializable;
 
 /**
  * Understands how to identify municipalities.
  */
 @PersistenceCapable
 @EmbeddedOnly
-public class City {
+public class City implements Serializable {
 
         private static final int DEFAULT_HASHCODE = 42;
 

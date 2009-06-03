@@ -19,7 +19,9 @@ package ozgevekent.persistence;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
+import javax.jdo.Query;
 import javax.jdo.Transaction;
+import java.util.List;
 
 /**
  * Understands how to interact with persistent datastores.
@@ -30,6 +32,16 @@ public class DAO<T> {
 
         private static final PersistenceManagerFactory PERSISTENCE_MANAGER_FACTORY =
             JDOHelper.getPersistenceManagerFactory("transactions-optional");
+
+        public List<T> findBy(final String jdoql, final Object parameter) {
+                final PersistenceManager persistenceManager = PERSISTENCE_MANAGER_FACTORY.getPersistenceManager();
+                final Query query = persistenceManager.newQuery(jdoql);
+                try {
+                        return (List<T>) query.execute(parameter);
+                } finally {
+                        query.closeAll();
+                }
+        }
 
         public T save(final T entity) {
                 final PersistenceManager persistenceManager = PERSISTENCE_MANAGER_FACTORY.getPersistenceManager();

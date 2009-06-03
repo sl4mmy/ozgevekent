@@ -21,13 +21,17 @@ import ozgevekent.utilities.equalitators.StringEqualitator;
 import javax.jdo.annotations.EmbeddedOnly;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
+import java.io.Serializable;
 
 /**
  * Understands how to identify modern SMTP mailboxes.
  */
 @PersistenceCapable
 @EmbeddedOnly
-public class EmailAddress {
+public class EmailAddress implements Serializable {
 
         private static final int DEFAULT_HASHCODE = 42;
 
@@ -54,6 +58,12 @@ public class EmailAddress {
                 }
 
                 return false;
+        }
+
+        public Message addAsRecipient(final Message message, final Message.RecipientType type)
+            throws MessagingException {
+                message.addRecipient(type, new InternetAddress(emailAddress));
+                return message;
         }
 
         @Override

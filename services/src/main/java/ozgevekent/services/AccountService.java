@@ -16,24 +16,38 @@
 
 package ozgevekent.services;
 
-import com.google.appengine.api.users.User;
-import com.google.appengine.api.users.UserService;
-import com.google.appengine.api.users.UserServiceFactory;
 import ozgevekent.domain.Account;
 
+import java.util.Map;
+
 /**
- * Understands how to determine if users are authenticated.
+ * Understands how to identify individual users.
  */
 public class AccountService {
 
-        private static final UserService GOOGLE_SERVICE = UserServiceFactory.getUserService();
+        private UserService userService;
 
-        public Account getAccount() {
-                final User googleUser = GOOGLE_SERVICE.getCurrentUser();
-                if (googleUser != null) {
-                        return null;
+        public AccountService() {
+                userService = new UserService();
+        }
+
+        public Account findOrCreateAccount(final Map<String, Object> session) {
+                final Object valueInSession = session.get("account");
+
+                if (valueInSession instanceof Account) {
+                        final Account account = (Account) valueInSession;
+
+                        if (userService.isUserAssociatedWith(account)) {
+                                return account;
+                        } else if (not(account.hasUser())) {
+                                return userService.associateUserWith(account);
+                        }
                 }
 
-                return null;
+                return userService.findOrCreateAccountAssociatedWithUser();
+        }
+
+        private boolean not(final boolean expression) {
+                return !expression;
         }
 }

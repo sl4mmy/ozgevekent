@@ -10,6 +10,7 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="domain" />
+    <orderEntry type="module" module-name="persistence" />
     <orderEntry type="library" name="Google AppEngine" level="project" />
     <orderEntry type="inheritedJdk" />
     <orderEntryProperties />

@@ -21,13 +21,14 @@ import ozgevekent.utilities.equalitators.StringEqualitator;
 import javax.jdo.annotations.EmbeddedOnly;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
+import java.io.Serializable;
 
 /**
  * Understands how pieces of mail are automatically sorted.
  */
 @PersistenceCapable
 @EmbeddedOnly
-public class PostalCode {
+public class PostalCode implements Serializable {
 
         private static final int DEFAULT_HASHCODE = 42;
 

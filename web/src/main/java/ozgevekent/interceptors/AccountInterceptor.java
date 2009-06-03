@@ -18,11 +18,10 @@ package ozgevekent.interceptors;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
-import org.apache.struts2.interceptor.ParameterAware;
-import org.apache.struts2.interceptor.SessionAware;
 import ozgevekent.AccountAware;
-import ozgevekent.utilities.ActionInvocationSelectFilter;
 import ozgevekent.domain.Account;
+import ozgevekent.services.AccountService;
+import ozgevekent.utilities.ActionInvocationSelectFilter;
 
 import java.util.List;
 import java.util.Map;
@@ -30,26 +29,30 @@ import java.util.Map;
 /**
  * Understands how to determine if users are already authenticated.
  */
-public class AccountInterceptor extends AbstractInterceptor implements ParameterAware, SessionAware {
-
-        private ThreadLocal<Map<String, String[]>> parameters = new ThreadLocal<Map<String, String[]>>();
-
-        private ThreadLocal<Map<String, Object>> session = new ThreadLocal<Map<String, Object>>();
+public class AccountInterceptor extends AbstractInterceptor {
 
         public String intercept(final ActionInvocation invocation) throws Exception {
+                if (not(invocation.getAction() instanceof AccountAware)) {
+                        return invocation.invoke();
+                }
+
+                final AccountService service = new AccountService();
+
+                final Map<String, Object> session = invocation.getInvocationContext().getSession();
+
+                final Account account = service.findOrCreateAccount(session);
+                session.put("account", account);
+
                 final List<AccountAware> components =
                     new ActionInvocationSelectFilter(invocation).select(AccountAware.class);
                 for (AccountAware component : components) {
-                        component.setAccount(Account.ANONYMOUS);
+                        component.setAccount(account);
                 }
+
                 return invocation.invoke();
         }
 
-        public void setParameters(final Map<String, String[]> parameters) {
-                this.parameters.set(parameters);
-        }
-
-        public void setSession(final Map<String, Object> session) {
-                this.session.set(session);
+        private boolean not(final boolean expression) {
+                return !expression;
         }
 }

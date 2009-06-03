@@ -20,17 +20,22 @@ import com.opensymphony.xwork2.validator.annotations.EmailValidator;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.Validations;
 import com.opensymphony.xwork2.validator.annotations.ValidatorType;
+import ozgevekent.AccountAware;
 import ozgevekent.PersonAware;
+import ozgevekent.domain.Account;
 import ozgevekent.domain.Person;
+import ozgevekent.domain.Role;
 import ozgevekent.persistence.DAO;
 import ozgevekent.services.MailService;
 
 /**
  * Understands how to create personal information for an individual human being.
  */
-public class NewAction extends PersonParameters implements PersonAware {
+public class NewAction extends PersonParameters implements AccountAware, PersonAware {
 
         private Person person;
+
+        private Account account;
 
         @Validations(
             requiredStrings = {
@@ -45,11 +50,20 @@ public class NewAction extends PersonParameters implements PersonAware {
                 }
         )
         public String execute() throws Exception {
-                final DAO<Person> dao = new DAO<Person>();
-                person = dao.save(person);
+                final Role role = suitableRoleFor(account);
+                account.registerTo(person, role);
+
+                final DAO<Account> dao = new DAO<Account>();
+                account = dao.save(account);
+
                 final MailService mailService = new MailService();
                 mailService.sendNewPersonMail(person);
+
                 return "success";
+        }
+
+        public void setAccount(final Account account) {
+                this.account = account;
         }
 
         public Person getPerson() {
@@ -58,5 +72,13 @@ public class NewAction extends PersonParameters implements PersonAware {
 
         public void setPerson(final Person person) {
                 this.person = person;
+        }
+
+        private Role suitableRoleFor(final Account account) {
+                if (account.isSuperuser()) {
+                        return Role.superuser();
+                }
+
+                return Role.normal();
         }
 }

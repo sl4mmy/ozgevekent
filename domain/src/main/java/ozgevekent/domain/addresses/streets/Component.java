@@ -25,12 +25,13 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+import java.io.Serializable;
 
 /**
  * Understands individual elements in a street address.
  */
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
-public class Component {
+public class Component implements Serializable {
 
         private static final int DEFAULT_HASHCODE = 42;
 

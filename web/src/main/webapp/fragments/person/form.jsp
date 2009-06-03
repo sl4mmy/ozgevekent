@@ -14,7 +14,7 @@
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
   --%>
 
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 
 <form id="new_person" name="new_person" action="/person/new" method="post">
         <fieldset>

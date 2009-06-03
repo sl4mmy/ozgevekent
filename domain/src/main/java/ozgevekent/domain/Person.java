@@ -24,18 +24,24 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import java.io.Serializable;
 
 /**
  * Understands individual human beings.
  */
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
-public class Person {
+public class Person implements Serializable {
 
         private static final int PRIME = 31;
 
         @PrimaryKey
         @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
         private Key key;
+
+        @Persistent(mappedBy = "person")
+        private Account account;
 
         @Persistent
         private Address address;
@@ -55,6 +61,11 @@ public class Person {
                 this.name = name;
                 this.emailAddress = emailAddress;
                 this.address = address;
+        }
+
+        public Message addAsRecipient(final Message message, final Message.RecipientType type)
+            throws MessagingException {
+                return emailAddress.addAsRecipient(message, type);
         }
 
         @Override

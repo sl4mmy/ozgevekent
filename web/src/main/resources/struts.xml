@@ -20,11 +20,13 @@
 <struts>
         <package name="custom-conventions" extends="convention-default">
                 <interceptors>
+                        <interceptor name="account" class="ozgevekent.interceptors.AccountInterceptor"/>
                         <interceptor name="createPerson" class="ozgevekent.interceptors.person.CreateInterceptor"/>
                         <interceptor-stack name="custom-convention-stack">
                                 <interceptor-ref name="paramsPrepareParamsStack">
                                         <param name="validation.validateAnnotatedMethodOnly">true</param>
                                 </interceptor-ref>
+                                <interceptor-ref name="account"/>
                                 <interceptor-ref name="createPerson"/>
                         </interceptor-stack>
                 </interceptors>

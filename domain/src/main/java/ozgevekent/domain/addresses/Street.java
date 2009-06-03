@@ -28,6 +28,7 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -36,7 +37,7 @@ import java.util.List;
  * Understands how to distinguish a particular building within a neighborhood.
  */
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
-public class Street {
+public class Street implements Serializable {
 
         private static final int DEFAULT_HASHCODE = 42;
 

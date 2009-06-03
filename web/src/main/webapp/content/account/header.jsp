@@ -12,20 +12,14 @@
   WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
   ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
   OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-  --%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+--%>
 
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
-<html>
-<head>
-        <title>Te&#x15F;ekk&#xFC;r Ederiz! | Thank You!</title>
-</head>
-<body>
-<p>Te&#x15F;ekk&#xFC;r Ederiz! Thank you for providing your contact information!</p>
-<ul>
-        <li><s:property value="person"/></li>
-</ul>
-</body>
-</html>
+<s:if test="loggedIn">
+        Merhaba, <s:property value="nickname"/>! | <a href="/person">Edit profile</a> |
+        <a href="<s:property value="logoutURL"/>">Logout</a>
+</s:if>
+<s:else>
+        <a href="<s:property value="loginURL"/>">Login</a> | <a href="/person">Create profile</a>
+</s:else>
