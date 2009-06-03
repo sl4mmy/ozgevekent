@@ -20,5 +20,6 @@
         <sessions-enabled>true</sessions-enabled>
         <system-properties>
                 <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+                <property name="admin.email" value="@ADMIN-EMAIL@"/>
         </system-properties>
 </appengine-web-app>

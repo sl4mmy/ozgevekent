@@ -32,6 +32,8 @@ import java.util.Properties;
  */
 public class MailService {
 
+        private static final String ADMIN_EMAIL = System.getProperty("admin.email");
+
         public void sendNewPersonMail(final Person person) {
                 final Properties props = new Properties();
                 final Session session = Session.getDefaultInstance(props, null);
@@ -41,9 +43,8 @@ public class MailService {
 
                 try {
                         Message msg = new MimeMessage(session);
-                        msg.setFrom(new InternetAddress("sl4mmy@gmail.com"));
-                        msg.addRecipient(Message.RecipientType.TO,
-                            new InternetAddress("sl4mmy@gmail.com"));
+                        msg.setFrom(new InternetAddress(ADMIN_EMAIL));
+                        msg.addRecipient(Message.RecipientType.TO, new InternetAddress(ADMIN_EMAIL));
                         msg.setSubject("Somebody created a profile");
                         msg.setText(msgBody);
                         Transport.send(msg);
