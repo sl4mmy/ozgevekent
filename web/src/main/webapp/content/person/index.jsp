@@ -23,49 +23,6 @@
         <script type="text/javascript" src="/scripts/person.js"></script>
 </head>
 <body>
-<form id="new_person" name="new_person" action="/person/new" method="post">
-        <fieldset>
-                <legend><span>/Contact Information</span></legend>
-                <ol>
-                        <li>
-                                <label for="name">Adim <em>()</em>/Name <em>(required)</em></label>
-                                <input id="name" name="name" class="text" type="text" size="64"/>
-                        </li>
-                        <li>
-                                <label for="emailAddress"><em>()</em>/Email Address <em>(required)</em></label>
-                                <input id="emailAddress" name="emailAddress" class="text" type="text" size="64"/>
-                        </li>
-                </ol>
-        </fieldset>
-        <fieldset>
-                <legend><span>/Mailing Address</span></legend>
-                <ol>
-                        <li>
-                                <label for="street">Sokak/Street</label>
-                                <input id="street" name="street[0]" class="text" type="text" size="64"/>
-                                <a href="#street" onclick="add_street(); return false;">/Add another line</a>
-                        </li>
-                        <li>
-                                <label for="city">Kent/City</label>
-                                <input id="city" name="city" class="text" type="text" size="64"/>
-                        </li>
-                        <li>
-                                <label for="state">/State</label>
-                                <input id="state" name="state" class="text" type="text" size="64"/>
-                        </li>
-                        <li>
-                                <label for="postalCode">/Postal Code</label>
-                                <input id="postalCode" name="postalCode" class="text" type="text" size="64"/>
-                        </li>
-                        <li>
-                                <label for="country">/Country</label>
-                                <input id="country" name="country" class="text" type="text" size="64"/>
-                        </li>
-                </ol>
-        </fieldset>
-        <fieldset class="submit">
-                <input class="submit" type="submit" value="/Save"/>
-        </fieldset>
-</form>
+<jsp:include page="/WEB-INF/fragments/person/form.jsp"/>
 </body>
 </html>

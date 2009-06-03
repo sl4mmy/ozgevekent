@@ -16,23 +16,19 @@
 
 package ozgevekent.actions.person;
 
-import com.opensymphony.xwork2.Preparable;
 import com.opensymphony.xwork2.validator.annotations.EmailValidator;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.Validations;
 import com.opensymphony.xwork2.validator.annotations.ValidatorType;
 import ozgevekent.PersonAware;
-import ozgevekent.services.MailService;
 import ozgevekent.domain.Person;
 import ozgevekent.persistence.DAO;
-
-import java.util.LinkedList;
-import java.util.List;
+import ozgevekent.services.MailService;
 
 /**
  * Understands how to create personal information for an individual human being.
  */
-public class NewAction extends PersonParameters implements PersonAware, Preparable {
+public class NewAction extends PersonParameters implements PersonAware {
 
         private Person person;
 
@@ -54,15 +50,6 @@ public class NewAction extends PersonParameters implements PersonAware, Preparab
                 final MailService mailService = new MailService();
                 mailService.sendNewPersonMail(person);
                 return "success";
-        }
-
-        public void prepare() throws Exception {
-                final List<String> currentStreet = getStreet();
-                if (currentStreet == null || currentStreet.size() == 0) {
-                        final List<String> temp = new LinkedList<String>();
-                        temp.add("");
-                        setStreet(temp);
-                }
         }
 
         public Person getPerson() {
